@@ -23,7 +23,6 @@ export default function PositionedMenu() {
     axios
       .get(`http://localhost:3001/category`)
       .then((response) => {
-        console.log(response.data);
         setCategories(response.data);
       });
   },[]);
