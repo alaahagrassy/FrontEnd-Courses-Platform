@@ -4,7 +4,7 @@ import { TextField ,Button } from "@mui/material";
 export const BootstrapInput = styled(TextField)(({ theme }) => ({
   borderRadius: 4,
   position: "relative",
-  backgroundColor: '#00BCD4',
+  backgroundColor: 'white',
   display: "block",
   fontSize: 16,
   width: '15%',
@@ -25,8 +25,7 @@ export const BootstrapInput = styled(TextField)(({ theme }) => ({
 
 export const StyledButton = styled(Button)(({ theme }) => ({
     width: "auto",
-    margin: "auto",
-    marginLeft: '623px',
+    marginLeft: '571px',
     marginTop: "20px",
     fontFamily:"Oswald",
     textTransform: "uppercase",
@@ -36,3 +35,13 @@ export const StyledButton = styled(Button)(({ theme }) => ({
 
     }
 }));
+
+export const Loginstyled = styled('a')(({theme})=>({
+
+  marginLeft :'5px',
+  "&:hover": {
+   cursor:'pointer',
+   color :'blue',
+   textDecoration: 'underline'
+  }
+}))
