@@ -19,8 +19,7 @@ const Navbar = () => {
   var nagivate=useNavigate();
   const MobileView = useMediaQuery(theme.breakpoints.down("md")); 
   const LaptopView = useMediaQuery(theme.breakpoints.up("md"));
-  const handleSubmit=()=>
-  {
+  const HanldingSignUp =()=>{
     nagivate('/signin')
   }
   return (
@@ -96,9 +95,9 @@ const Navbar = () => {
                   }}
                 ></Box> 
  
-<Button variant="outlined" sx={{borderColor:'black' , color:'black'}}>Login</Button>
+{/* <Button variant="outlined" sx={{borderColor:'black' , color:'black'}} onClick={HanldingLogIn}>Login</Button> */}
 
-<Button variant="contained" sx={{backgroundColor:'black' , color:'white'}} onClick={handleSubmit}>Sign up</Button>
+<Button variant="contained" sx={{backgroundColor:'black' , color:'white'}} onClick={HanldingSignUp}>Sign up</Button>
         
                 <StyledSettingsIcon></StyledSettingsIcon>
               

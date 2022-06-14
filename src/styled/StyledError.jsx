@@ -3,5 +3,5 @@ import { Box} from "@mui/material";
 
 export const StyledError = styled(Box)(({ theme }) => ({
     color:"red",
-    margin:"auto"
+    marginLeft:'522px'
   }));

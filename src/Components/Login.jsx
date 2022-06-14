@@ -1,27 +1,23 @@
 import { BootstrapInput, StyledButton } from '../styled/StyledForm'
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { StyledError } from '../styled/StyledError'
 import {Grid } from "@mui/material";
 import Joi from 'joi'
 import axios from 'axios';
-import {Loginstyled} from  '../styled/StyledForm'
-
-
 
 const Register = () => {
 
-  const handlingSignUp=()=>
-    {
-      navigate('/login')
-    }
+  // const handlingSignUp=()=>
+  //   {
+  //     navigate('/login')
+  //   }
 
   const [state, setState] = useState({
-    userName: "",
     email: "",
     password: "",
   });
-  const { userName, email, password } = state;
+  const { email, password } = state;
   const [errorList, setErrorList] = useState([]);
 
   const handLeInputChange = (e) => {
@@ -53,10 +49,11 @@ const Register = () => {
     if (validationLoginFormResult.error ) {
       setErrorList(validationLoginFormResult.error.details);
     } else {
-      axios.post('http://localhost:3001/users/register', { userName, email, password }).then(({ data }) => {
+      axios.post('http://localhost:3001/users/login', {email, password }).then(({ data }) => {
+        // console.log(data);
         navigate('/')
       }).catch((err) => {
-        navigate('/signin')
+        navigate('/login')
       })
       setErrorList([]);
     }
@@ -69,20 +66,7 @@ const Register = () => {
       <Grid paddingTop={'100px'}>
 
         <form onSubmit={handleSubmit}>
-          <BootstrapInput
-            placeholder="User Name"
-            type="text"
-            value={userName}
-            onChange={handLeInputChange}
-            name="userName"
-          />
-          {errorList
-            ? errorList.map((error, index) => {
-              if (error.path[0] === "userName") {
-                return <StyledError key={index}> Invalid userName</StyledError>;
-              }
-            })
-            : ""}
+        
 
           <BootstrapInput
             placeholder="Email"
@@ -121,14 +105,6 @@ const Register = () => {
           <StyledButton variant="contained" type="submit">
             Sign in
           </StyledButton>
-
-          <Grid display={'flex'} marginLeft={'500px'}>
-          <div> Aready have an account? </div>
-          <Loginstyled>
-
-          <span onClick={handlingSignUp}>Log in</span>
-          </Loginstyled>
-            </Grid>
         </form>
       </Grid>
     </>
